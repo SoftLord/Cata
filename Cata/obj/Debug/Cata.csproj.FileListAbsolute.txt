@@ -1,0 +1,16 @@
+C:\Users\alvar\Desktop\C#\Cata\Cata\bin\Debug\Cata.exe.config
+C:\Users\alvar\Desktop\C#\Cata\Cata\bin\Debug\Cata.exe
+C:\Users\alvar\Desktop\C#\Cata\Cata\bin\Debug\Cata.pdb
+C:\Users\alvar\Desktop\C#\Cata\Cata\bin\Debug\Interop.WMPLib.dll
+C:\Users\alvar\Desktop\C#\Cata\Cata\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\alvar\Desktop\C#\Cata\Cata\obj\Debug\Cata.csprojAssemblyReference.cache
+C:\Users\alvar\Desktop\C#\Cata\Cata\obj\Debug\Interop.WMPLib.dll
+C:\Users\alvar\Desktop\C#\Cata\Cata\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\alvar\Desktop\C#\Cata\Cata\obj\Debug\Cata.csproj.ResolveComReference.cache
+C:\Users\alvar\Desktop\C#\Cata\Cata\obj\Debug\Cata.Cata.resources
+C:\Users\alvar\Desktop\C#\Cata\Cata\obj\Debug\Cata.instalacionPythonYdependencias.resources
+C:\Users\alvar\Desktop\C#\Cata\Cata\obj\Debug\Cata.Properties.Resources.resources
+C:\Users\alvar\Desktop\C#\Cata\Cata\obj\Debug\Cata.csproj.GenerateResource.cache
+C:\Users\alvar\Desktop\C#\Cata\Cata\obj\Debug\Cata.csproj.CoreCompileInputs.cache
+C:\Users\alvar\Desktop\C#\Cata\Cata\obj\Debug\Cata.exe
+C:\Users\alvar\Desktop\C#\Cata\Cata\obj\Debug\Cata.pdb
