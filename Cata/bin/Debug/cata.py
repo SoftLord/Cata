@@ -1,16 +1,25 @@
-#para instalar speech_recognition: pip install SpeechRecognition
-import speech_recognition as reconocedorDeVoz #tecnologia para pasar de voz a texto
-import voz  #libreria propia que usaremos para toda la parte del motor de busqueda
-import playsound #libreria para reproducir el mp3
+import speech_recognition as reconocedorDeVoz #libreria para pasar de voz a texto
+import voz                                    #libreria propia que usaremos para toda la parte del motor de busqueda
+import playsound                              #libreria para reproducir el mp3
 import sys
 
 r = reconocedorDeVoz.Recognizer()
 
 try:
-    with reconocedorDeVoz.Microphone() as fuenteEntrada:
-        print ("Di algo")
-        audio = r.listen(fuenteEntrada) #escucha lo que dices
-        print("Procesando...")
+    #si se ejecuta directamente habrá como máximo 9 segundos
+    if __name__ == "__main__":
+        with reconocedorDeVoz.Microphone() as fuenteEntrada:
+            print ("Di algo")
+            audio = r.listen(fuenteEntrada, timeout=9) #escucha lo que dices durante como máximo 9 segundos
+            print("Procesando...")
+
+    #sino (se ejecuta desde la interfaz) no habrá límite de tiempo
+    else: 
+        with reconocedorDeVoz.Microphone() as fuenteEntrada:
+            print ("Di algo")
+            audio = r.listen(fuenteEntrada) #escucha lo que dices sin limite de tiempo
+            print("Procesando...")
+
 
     try:
         textoADecir = r.recognize_google(audio, language="es-ES") #la ultima parte es la parte que procesa lo que hemos dicho con la voz de google, en español

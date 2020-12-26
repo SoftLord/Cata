@@ -1,21 +1,20 @@
 from gtts import gTTS
 import wget
-import os
-from os import remove
 import time
 import webbrowser
 import playsound
 import random
+import wikipedia
 
 def guardar(texto):
     tts = gTTS(text=texto, lang="es")
     tts.save("audio.mp3")
 
-#----------------------Funciones y listas para el asistente-----------------------------#
+#----------------------Funciones y listas para el asistente-----------------------------------------------------------------#
 
 #poner aqui la funcion para descargar el tiempo
 
-#------------------------------------------LISTAS---------------------------------------------------------------------------#
+#------------------------------------------LISTAS--------------------------------------------------#
 
 LISTA_SALUDOS = ["hola", "va", "tal", "estás", "ey", "noches", "dias", "días","pasa", "compadre", "saludos"]
 LISTA_PREGUNTAS_PERSONALES = ["llamas", "como", "eres"]
@@ -26,6 +25,7 @@ LISTA_BASES = ["base", "beatbox", "improvisar", "improvisa", "pínchame", "pinch
 LISTA_CREADOR = ["creador", "padre", "amo", "diseñó", "diseñado", "diseño", "creado", "creó", "creo"]
 LISTA_PREGUNTAS_QUIEN_SOY = ["soy", "llamo"]
 LISTA_AMOR = ["salir", "cita", "quieres", "quiero", "amo"]
+LISTA_WIKIPEDIA = ["Wikipedia"]
 
 #---------------------------------------FIN LISTAS-------------------------------------------------# 
 
@@ -36,6 +36,7 @@ def interpretar(textoDicho): #hecho a base de if, elif y else, siempre devuelve 
     textoDicho = textoDicho.split() #lo pasamos a tipo lista
 
     for palabra in textoDicho:
+
         if palabra in LISTA_SALUDOS:
             if palabra == "pasa" or palabra == "compadre":
                 return "hola tío, ¿qué pasa?"
@@ -48,8 +49,10 @@ def interpretar(textoDicho): #hecho a base de if, elif y else, siempre devuelve 
             else:
                 return "Hola, me alegro de verte..."
 
+
         elif palabra in LISTA_PREGUNTAS_PERSONALES:
             return "Perdón, no me he presentado, me llamo Cata y soy la puta ama... ¡OLÉÉÉÉÉÉ!"
+
 
         elif palabra in LISTA_OTROS_ASISTENTES:
             if palabra == "Assistant":
@@ -61,23 +64,38 @@ def interpretar(textoDicho): #hecho a base de if, elif y else, siempre devuelve 
             elif palabra == "Siri":
                 return "No... y ni quiero conocerla, la manzana mordida esa es muy cara. ¡Y está mordida XD!"
 
+
         elif palabra in LISTA_CREADOR:
             return "Mi creador es el gran e inconfundible Álvaro Roca."
 
+
+        elif palabra in LISTA_WIKIPEDIA:
+            wikipedia.set_lang("es") #wikipedia en español
+            textoDicho = textoDicho[textoDicho.index(palabra)+1:]  #cortamos la string desde la palabra hasta el final, por eso no ponemos nada
+            textoWikipedia = wikipedia.summary(textoDicho, sentences=1)
+            print(textoWikipedia)
+            return textoWikipedia
+
+
         elif palabra in LISTA_BUSQUEDA:
             textoDicho = textoDicho[textoDicho.index(palabra)+1:] #cortamos la string desde la palabra hasta el final, por eso no ponemos nada
-            textoParaBuscar = "https://www.google.com/search?q=" + " ".join(textoDicho) #unimos la lista con el .join, dejando un espacio entre las palabras
-            webbrowser.open(textoParaBuscar, new=1, autoraise=True) #new = 1 sirve para abrir en la misma pestaña y =2 en otra diferente, el autorise es para situarse encima
-            return "Esto es lo que he encontrado..."
+            if "Wikipedia" in textoDicho:
+                pass
+            else:
+                textoParaBuscar = "https://www.google.com/search?q=" + " ".join(textoDicho) #unimos la lista con el .join, dejando un espacio entre las palabras
+                webbrowser.open(textoParaBuscar, new=1, autoraise=True) #new = 1 sirve para abrir en la misma pestaña y =2 en otra diferente, el autorise es para situarse encima
+                return "Esto es lo que he encontrado..."
+
 
         elif palabra in LISTA_BASES:
-            eleccion = random.randint(1,3) #elegimos si poner la base 1, 2 o 3.
-            print(eleccion)
+            eleccion = random.randint(1,3) #elegimos si poner la base 1, 2 o 3
             nombre_cancion = "musica/basefree" + str(eleccion) + ".mp3"
             playsound.playsound(nombre_cancion)
 
+
         elif palabra in LISTA_PREGUNTAS_QUIEN_SOY:
             return "¿Quién?, ¿Tú...? Pues un gilipollas de primera"
+
 
         elif palabra in LISTA_AMOR:
             if palabra == "cita" or palabra == "salir":

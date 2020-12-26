@@ -53,6 +53,7 @@ namespace Cata
                         "wget",
                         "playsound",
                         "SpeechRecognition",
+                        "pywhatkit",
                         "PyAudio"
                     }; //creamos una lista donde guardaremos los que necesitamos saber
 
@@ -63,7 +64,7 @@ namespace Cata
                     {
                         linea = librerias_python.ReadLine();
 
-                        if (linea == null) //fin del archivoº
+                        if (linea == null) //fin del archivo
                         {
                             hecho = true;
                         }
@@ -80,7 +81,7 @@ namespace Cata
                         string librerias_etiqueta = string.Join(", ", lista_librerias_necesarias); //pasamos la lista a string
                         etiquetaLibrerias.Text = "Necesita instalar las siguientes librerias:\n" +
                             librerias_etiqueta + "\nPara ello instale las librerias manualmente usando el comando " +
-                            "pip install \"nombre_de_la_libreria\" (sin comillas)";
+                            "pip install \"nombre_de_la_libreria\" (sin comillas) desde la terminal (cmd)";
 
                         StreamWriter archivoOpciones = new StreamWriter("opciones.txt");
                         archivoOpciones.Write("instalacion = false");
