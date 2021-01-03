@@ -41,16 +41,19 @@ namespace Cata
                     instalado = true; //todo la instalacion de dependencias correctas
                     iniciarYpausarVideo(rutaAnimacion, true); //iniciamos el video al iniciar la aplicacion
                 }
+
                 else if (linea.Contains("false"))
                 {
                     //creamos un form que sera el de instalacion python y dependencias
                     instalacionPythonYdependencias Form = new instalacionPythonYdependencias();
                     Form.Show();
                 }
+
                 else
                 {
                     Application.Exit();
                 }
+
             }
             catch
             {
@@ -68,7 +71,7 @@ namespace Cata
             {
                 if (!hecho)
                 {
-                    iniciarYpausarVideo(rutaAnimacion); //lo despausamos y al cabo de 2300 ms lo reanudamos
+                    iniciarYpausarVideo(rutaAnimacion); //lo despausamos y al cabo de 2300ms lo reanudamos
 
                     hecho = true;
 
@@ -88,7 +91,7 @@ namespace Cata
         private void iniciarCata()
         {
             ProcessStartInfo ejecutarCata = new ProcessStartInfo(); //creamos un nuevo proceso a parte para la ejecucion de cata en python
-            ejecutarCata.WindowStyle = ProcessWindowStyle.Hidden; //hacemos que la aparencia de la ventana sea escondida para que
+            ejecutarCata.WindowStyle = ProcessWindowStyle.Hidden;  //hacemos que la aparencia de la ventana sea escondida para que
             ejecutarCata.FileName = "start.bat";                  //no se vea la venta de la consola de comandos
             Process.Start(ejecutarCata);
         }
@@ -103,7 +106,7 @@ namespace Cata
         //inicio de la animacion
 
         private void pausarVideo() //esperamos 2300 ms que es el tiempo exacto calculado
-                                   //                       y lo pausamos
+                                  //y lo pausamos
         {
             Thread.Sleep(2300);
             reproductor.Ctlcontrols.pause();

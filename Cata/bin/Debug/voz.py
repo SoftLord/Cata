@@ -5,6 +5,7 @@ import webbrowser
 import playsound
 import random
 import wikipedia
+import mail
 
 def guardar(texto):
     tts = gTTS(text=texto, lang="es")
@@ -19,13 +20,18 @@ def guardar(texto):
 LISTA_SALUDOS = ["hola", "va", "tal", "estás", "ey", "noches", "dias", "días","pasa", "compadre", "saludos"]
 LISTA_PREGUNTAS_PERSONALES = ["llamas", "como", "eres"]
 LISTA_OTROS_ASISTENTES = ["Assistant", "Alexa", "Google home", "Siri", "oye", "Okay", "Ok"]
-#LISTA_TIEMPO = ["tiempo", "clima", "temperatura"]
-LISTA_BUSQUEDA = ["busca", "Google", "es"]
-LISTA_BASES = ["base", "beatbox", "improvisar", "improvisa", "pínchame", "pinchame", "ponme"]
+LISTA_AMOR = ["salir", "cita", "quieres", "quiero", "amo"]
 LISTA_CREADOR = ["creador", "padre", "amo", "diseñó", "diseñado", "diseño", "creado", "creó", "creo"]
 LISTA_PREGUNTAS_QUIEN_SOY = ["soy", "llamo"]
-LISTA_AMOR = ["salir", "cita", "quieres", "quiero", "amo"]
+
+#LISTA_TIEMPO = ["tiempo", "clima", "temperatura"]
+
+LISTA_BUSQUEDA = ["busca", "Google", "es"]
 LISTA_WIKIPEDIA = ["Wikipedia"]
+
+LISTA_EMAIL = []
+
+LISTA_BASES = ["base", "beatbox", "improvisar", "improvisa", "pínchame", "pinchame", "ponme"]
 
 #---------------------------------------FIN LISTAS-------------------------------------------------# 
 
