@@ -29,7 +29,7 @@ LISTA_PREGUNTAS_QUIEN_SOY = ["soy", "llamo"]
 LISTA_BUSQUEDA = ["busca", "Google", "es"]
 LISTA_WIKIPEDIA = ["Wikipedia"]
 
-LISTA_EMAIL = []
+LISTA_EMAIL = ["mail", "email", "gmail", "correo"]
 
 LISTA_BASES = ["base", "beatbox", "improvisar", "improvisa", "pínchame", "pinchame", "ponme"]
 
@@ -91,6 +91,11 @@ def interpretar(textoDicho): #hecho a base de if, elif y else, siempre devuelve 
                 textoParaBuscar = "https://www.google.com/search?q=" + " ".join(textoDicho) #unimos la lista con el .join, dejando un espacio entre las palabras
                 webbrowser.open(textoParaBuscar, new=1, autoraise=True) #new = 1 sirve para abrir en la misma pestaña y =2 en otra diferente, el autorise es para situarse encima
                 return "Esto es lo que he encontrado..."
+
+
+        elif palabra in LISTA_EMAIL:
+            #mail.establecerParametros()
+            return "Enviando..."
 
 
         elif palabra in LISTA_BASES:
